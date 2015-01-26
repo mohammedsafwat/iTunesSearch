@@ -1,0 +1,17 @@
+//
+//  AppDelegate.h
+//  iTunesSearch
+//
+//  Created by Mohammed Safwat on 1/24/15.
+//
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+
+
+@end
+
