@@ -25,15 +25,9 @@
     
     self.searchResultsCollectionView.dataSource = self;
     self.searchResultsCollectionView.delegate = self;
-    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //Load the Search Results Collection View Cell
     [self.searchResultsCollectionView registerClass:[SearchResultsCollectionViewCell class] forCellWithReuseIdentifier:@"SearchResultsCollectionViewCell"];
-    
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(275, 50)];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    
-    [self.searchResultsCollectionView setCollectionViewLayout:flowLayout];
     
     self.searchDataParser = [[SearchDataParser alloc]init];
     self.searchDataParser.scheduleDataParserDelegate = self;
@@ -112,7 +106,17 @@
     searchResultsCollectionViewCell.mediaArtistLabel.text = [[self.finalReturnedSearchResults objectAtIndex:indexPath.item] objectForKey:@"artistName"];
     NSURL* mediaImageURL = [NSURL URLWithString:[[self.finalReturnedSearchResults objectAtIndex:indexPath.item] objectForKey:@"artworkUrl100"]];
     [searchResultsCollectionViewCell.mediaImageView setImageWithURL:mediaImageURL key:nil placeholder:[UIImage imageNamed:@"mediaImagePlaceholder"] completionBlock:nil failureBlock:nil];
+    searchResultsCollectionViewCell.frame = CGRectMake(0, searchResultsCollectionViewCell.frame.origin.y, searchResultsCollectionViewCell.frame.size.width, searchResultsCollectionViewCell.frame.size.height);
     return searchResultsCollectionViewCell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize cellSize = CGSizeMake(self.view.frame.size.width, 50);
+    
+    return cellSize;
 }
 
 @end
