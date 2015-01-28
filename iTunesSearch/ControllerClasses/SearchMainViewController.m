@@ -11,6 +11,8 @@
 #import "SearchResultsCollectionViewCell.h"
 #import "JMImageCache.h"
 
+#define CELL_HEIGHT 50
+
 @interface SearchMainViewController ()
 @property (nonatomic, strong) SearchDataParser* searchDataParser;
 @property (nonatomic, assign) NSInteger numberOfReturnedSearchResults;
@@ -77,10 +79,10 @@
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:(void (^)(void)) ^{
                          textField.transform = CGAffineTransformMakeTranslation(0, -self.view.frame.size.height * 0.32);
-                         //self.searchResultsCollectionView.transform = CGAffineTransformMakeTranslation(0, textField.frame.origin.y + textField.frame.size.height );
+                         self.searchResultsCollectionView.transform = CGAffineTransformMakeTranslation(0, textField.frame.origin.y + textField.frame.size.height );
                      }
                      completion:^(BOOL finished){
-
+                         self.searchResultsCollectionView.contentInset = UIEdgeInsetsMake(0, 0, textField.frame.size.height + textField.frame.origin.y, 0);
                      }];
 }
 
@@ -117,7 +119,7 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGSize cellSize = CGSizeMake(self.view.frame.size.width, 50);
+    CGSize cellSize = CGSizeMake(self.view.frame.size.width, CELL_HEIGHT);
     
     return cellSize;
 }
