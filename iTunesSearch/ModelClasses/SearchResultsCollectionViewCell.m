@@ -26,6 +26,17 @@
         }
         
         self = [arrayOfViews objectAtIndex:0];
+        
+        //Add border to media image
+        self.mediaImageView.layer.borderWidth = 0.5;
+        self.mediaImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        
+        //Add separator view
+        float separatorViewHeight = 0.5;
+        self.separatorView = [[UIView alloc]initWithFrame:CGRectMake(0, self.frame.size.height - separatorViewHeight, self.frame.size.width, separatorViewHeight)];
+        self.separatorView.backgroundColor = [UIColor grayColor];
+        [self addSubview:self.separatorView];
+
     }
     
     return self;

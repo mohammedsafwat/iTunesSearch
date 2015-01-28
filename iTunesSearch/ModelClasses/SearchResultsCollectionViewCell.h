@@ -12,4 +12,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mediaImageView;
 @property (strong, nonatomic) IBOutlet UILabel *mediaTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *mediaArtistLabel;
+@property (strong, nonatomic) UIView *separatorView;
 @end

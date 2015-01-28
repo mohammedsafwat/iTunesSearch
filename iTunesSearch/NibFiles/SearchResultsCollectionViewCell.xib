@@ -7,20 +7,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="SearchResultsCollectionViewCell" id="Vja-qL-E8h" customClass="SearchResultsCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="275" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5i-Zs-A9K" userLabel="MediaTitleLabel">
-                        <rect key="frame" x="59" y="3" width="180" height="21"/>
+                        <rect key="frame" x="59" y="3" width="225" height="21"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv4-Tv-dfW" userLabel="MediaArtistLabel">
-                        <rect key="frame" x="59" y="24" width="180" height="20"/>
+                        <rect key="frame" x="59" y="24" width="225" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -31,13 +31,13 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <size key="customSize" width="272" height="50"/>
+            <size key="customSize" width="276" height="50"/>
             <connections>
                 <outlet property="mediaArtistLabel" destination="bv4-Tv-dfW" id="3k6-lb-AR1"/>
                 <outlet property="mediaImageView" destination="nCm-Xp-hJE" id="MUQ-UU-L1l"/>
                 <outlet property="mediaTitleLabel" destination="s5i-Zs-A9K" id="gkS-2F-of6"/>
             </connections>
-            <point key="canvasLocation" x="222" y="262"/>
+            <point key="canvasLocation" x="253" y="293"/>
         </collectionViewCell>
     </objects>
 </document>
