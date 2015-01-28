@@ -29,7 +29,11 @@
     mediaImageURLString = [mediaImageURLString stringByReplacingOccurrencesOfString:@"100" withString:@"400"];
     NSURL* mediaImageURL = [[NSURL alloc]initWithString:mediaImageURLString];
     [self.mediaImageView setImageWithURL:mediaImageURL key:nil placeholder:nil completionBlock:nil failureBlock:nil];
-    self.mediaImageView.layer.cornerRadius = 150;
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+        self.mediaImageView.layer.cornerRadius = 100;
+    else
+        self.mediaImageView.layer.cornerRadius = 320;
+        
     self.mediaImageView.clipsToBounds = YES;
 }
 
