@@ -61,7 +61,10 @@
 {
     [self moveTextFieldToTopWithAnimation:textField];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self startSearching:textField.text];
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [self startSearching:textField.text];
+    });
 }
 
 - (void)startSearching:(NSString*)searchString
@@ -69,13 +72,34 @@
     [self.searchDataParser getSearchResults:searchString];
 }
 
-- (void)propagateFinalReturnedSearchResults:(NSMutableArray *)finalReturnedSearchResults
+- (void)propagateFinalReturnedSearchResults:(NSMutableArray *)finalReturnedSearchResults withError:(NSError *)error
 {
-    self.numberOfReturnedSearchResults = finalReturnedSearchResults.count;
-    self.finalReturnedSearchResults = finalReturnedSearchResults;
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    self.searchResultsNumberLabel.text = [NSString stringWithFormat:@"Found %d search results.", finalReturnedSearchResults.count];
-    [self.searchResultsCollectionView reloadData];
+
+    if(finalReturnedSearchResults != nil && error != nil)
+    {
+        self.numberOfReturnedSearchResults = finalReturnedSearchResults.count;
+        self.finalReturnedSearchResults = finalReturnedSearchResults;
+        self.searchResultsNumberLabel.text = [NSString stringWithFormat:@"Found %d search results.", finalReturnedSearchResults.count];
+        [self.searchResultsCollectionView reloadData];
+    }
+    else
+    {
+        if([error.localizedDescription isEqualToString:@"The Internet connection appears to be offline."])
+        {
+            [self showAlertViewWithTitle:@"iTunes Search Error" andMessage:@"The Internet connection appears to be offline. Please connect to internet and try again."];
+        }
+        else
+        {
+            [self showAlertViewWithTitle:@"iTunes Search Error" andMessage:@"An error happened while doing search. Please try again."];
+        }
+    }
+}
+
+- (void)showAlertViewWithTitle:(NSString*)title andMessage:(NSString*)message
+{
+    UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 - (void)moveTextFieldToTopWithAnimation:(UITextField*)textField
@@ -113,6 +137,7 @@
     
     searchResultsCollectionViewCell.layer.shouldRasterize = YES;
     searchResultsCollectionViewCell.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    
     searchResultsCollectionViewCell.mediaTitleLabel.text = [[self.finalReturnedSearchResults objectAtIndex:indexPath.item] objectForKey:@"trackName"];
     searchResultsCollectionViewCell.mediaArtistLabel.text = [[self.finalReturnedSearchResults objectAtIndex:indexPath.item] objectForKey:@"artistName"];
     NSURL* mediaImageURL = [NSURL URLWithString:[[self.finalReturnedSearchResults objectAtIndex:indexPath.item] objectForKey:@"artworkUrl100"]];

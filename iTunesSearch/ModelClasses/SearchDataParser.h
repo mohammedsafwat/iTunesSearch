@@ -11,7 +11,7 @@
 @class SearchDataParser;
 
 @protocol SearchDataParserDelegate <NSObject>
-- (void)propagateFinalReturnedSearchResults:(NSMutableArray*)finalReturnedSearchResults;
+- (void)propagateFinalReturnedSearchResults:(NSMutableArray*)finalReturnedSearchResults withError:(NSError*)error;
 @end
 
 @interface SearchDataParser : NSObject

@@ -66,12 +66,12 @@
         NSLog(@"searchResultJsonData.count %lu", (unsigned long)searchResultJsonDataArray.count);
         //NSInteger searchResultsCount = [downloadedData valueForKey:@"resultCount"];
         NSMutableArray* finalParsedSearchResults = [self parseSearchData:searchResultJsonDataArray];
-        [self.scheduleDataParserDelegate propagateFinalReturnedSearchResults:finalParsedSearchResults];
+        [self.scheduleDataParserDelegate propagateFinalReturnedSearchResults:finalParsedSearchResults withError:nil];
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
         NSLog(@"Error happened while sending search request with description : %@", error.localizedDescription);
-        [self.scheduleDataParserDelegate propagateFinalReturnedSearchResults:nil];
+        [self.scheduleDataParserDelegate propagateFinalReturnedSearchResults:nil withError:error];
     }];
 
 }
