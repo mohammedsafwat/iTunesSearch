@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-kk-0QF" userLabel="SearchResultsCollectionView">
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" delaysContentTouches="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-kk-0QF" userLabel="SearchResultsCollectionView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9pJ-Ai-08X">
                                     <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
@@ -37,13 +37,18 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchResultsCollectionViewHeader" id="Y9A-UH-u6a">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </collectionReusableView>
                             </collectionView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bnK-SH-Fr9">
-                                <rect key="frame" x="60" y="280" width="480" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search for a track or an artist.." borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bnK-SH-Fr9">
+                                <rect key="frame" x="60" y="285" width="480" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="sQO-Fy-0yM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -63,11 +68,99 @@
                     <connections>
                         <outlet property="searchResultsCollectionView" destination="mAY-kk-0QF" id="12m-Hf-dD8"/>
                         <outlet property="searchTextField" destination="bnK-SH-Fr9" id="28U-W9-cZ7"/>
+                        <segue destination="l2J-4J-IpY" kind="show" identifier="SearchResultDetailsSegue" id="cw0-Cy-keJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630" y="285"/>
+            <point key="canvasLocation" x="1634" y="285"/>
+        </scene>
+        <!--Search Result Details View Controller-->
+        <scene sceneID="68s-jP-8es">
+            <objects>
+                <viewController id="l2J-4J-IpY" customClass="SearchResultDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fAw-Kb-Xxe"/>
+                        <viewControllerLayoutGuide type="bottom" id="iBH-tK-Dqt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9WH-Fu-ttT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1I-LM-7RT" userLabel="MediaTitleLabel">
+                                <rect key="frame" x="16" y="70" width="568" height="20"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUH-Pr-9T3" userLabel="MediaArtistLabel">
+                                <rect key="frame" x="16" y="90" width="568" height="20"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueY-Ga-lU8" userLabel="MediaAlbumLabel">
+                                <rect key="frame" x="16" y="110" width="568" height="20"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUl-R0-ZQj" userLabel="PriceLabel">
+                                <rect key="frame" x="16" y="150" width="568" height="20"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it1-5d-cNu" userLabel="ReleaseDateLabel">
+                                <rect key="frame" x="16" y="130" width="568" height="20"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhZ-Js-qHN" userLabel="MediaImageView">
+                                <rect key="frame" x="16" y="185" width="568" height="400"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I1I-LM-7RT" firstAttribute="top" secondItem="fAw-Kb-Xxe" secondAttribute="bottom" constant="5" id="3Bf-1z-Kqe"/>
+                            <constraint firstAttribute="centerX" secondItem="I1I-LM-7RT" secondAttribute="centerX" id="4fZ-Nl-qyv"/>
+                            <constraint firstItem="it1-5d-cNu" firstAttribute="leading" secondItem="9WH-Fu-ttT" secondAttribute="leadingMargin" id="6SE-ck-Hyb"/>
+                            <constraint firstItem="I1I-LM-7RT" firstAttribute="leading" secondItem="9WH-Fu-ttT" secondAttribute="leadingMargin" id="6kR-de-J6q"/>
+                            <constraint firstItem="ueY-Ga-lU8" firstAttribute="top" secondItem="dUH-Pr-9T3" secondAttribute="bottom" id="8I6-mW-1RZ"/>
+                            <constraint firstAttribute="centerX" secondItem="ueY-Ga-lU8" secondAttribute="centerX" id="AZw-Dq-ylB"/>
+                            <constraint firstItem="dUH-Pr-9T3" firstAttribute="leading" secondItem="9WH-Fu-ttT" secondAttribute="leadingMargin" id="D7l-j7-5cG"/>
+                            <constraint firstAttribute="centerX" secondItem="it1-5d-cNu" secondAttribute="centerX" id="DRG-wn-jLG"/>
+                            <constraint firstItem="dUH-Pr-9T3" firstAttribute="trailing" secondItem="9WH-Fu-ttT" secondAttribute="trailingMargin" id="LnJ-Ts-5sj"/>
+                            <constraint firstItem="bhZ-Js-qHN" firstAttribute="trailing" secondItem="9WH-Fu-ttT" secondAttribute="trailingMargin" id="MHo-GY-xNu"/>
+                            <constraint firstItem="bhZ-Js-qHN" firstAttribute="leading" secondItem="9WH-Fu-ttT" secondAttribute="leadingMargin" id="MSI-jQ-vDu"/>
+                            <constraint firstItem="BUl-R0-ZQj" firstAttribute="top" secondItem="it1-5d-cNu" secondAttribute="bottom" id="Q8q-yN-k48"/>
+                            <constraint firstAttribute="centerX" secondItem="BUl-R0-ZQj" secondAttribute="centerX" id="UJO-yY-SlX"/>
+                            <constraint firstItem="I1I-LM-7RT" firstAttribute="trailing" secondItem="9WH-Fu-ttT" secondAttribute="trailingMargin" id="Xtf-mU-NHc"/>
+                            <constraint firstItem="ueY-Ga-lU8" firstAttribute="leading" secondItem="9WH-Fu-ttT" secondAttribute="leadingMargin" id="d50-ly-09b"/>
+                            <constraint firstAttribute="centerX" secondItem="dUH-Pr-9T3" secondAttribute="centerX" id="dd2-Zh-Er5"/>
+                            <constraint firstItem="it1-5d-cNu" firstAttribute="trailing" secondItem="9WH-Fu-ttT" secondAttribute="trailingMargin" id="e1w-lW-Sjr"/>
+                            <constraint firstItem="bhZ-Js-qHN" firstAttribute="top" secondItem="BUl-R0-ZQj" secondAttribute="bottom" constant="25" id="eu6-9R-IOI"/>
+                            <constraint firstItem="BUl-R0-ZQj" firstAttribute="trailing" secondItem="9WH-Fu-ttT" secondAttribute="trailingMargin" id="fti-Uw-nmY"/>
+                            <constraint firstItem="iBH-tK-Dqt" firstAttribute="top" secondItem="bhZ-Js-qHN" secondAttribute="bottom" constant="25" id="fxT-ie-dji"/>
+                            <constraint firstItem="BUl-R0-ZQj" firstAttribute="leading" secondItem="9WH-Fu-ttT" secondAttribute="leadingMargin" id="pwM-MG-mLg"/>
+                            <constraint firstItem="ueY-Ga-lU8" firstAttribute="trailing" secondItem="9WH-Fu-ttT" secondAttribute="trailingMargin" id="qO7-bn-uvE"/>
+                            <constraint firstItem="dUH-Pr-9T3" firstAttribute="top" secondItem="I1I-LM-7RT" secondAttribute="bottom" id="qxl-XR-xXM"/>
+                            <constraint firstItem="it1-5d-cNu" firstAttribute="top" secondItem="ueY-Ga-lU8" secondAttribute="bottom" id="tOr-Cr-yMf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mediaAlbumLabel" destination="ueY-Ga-lU8" id="5lj-1I-byC"/>
+                        <outlet property="mediaArtistLabel" destination="dUH-Pr-9T3" id="Am8-cQ-BEm"/>
+                        <outlet property="mediaImageView" destination="bhZ-Js-qHN" id="blx-bA-QjV"/>
+                        <outlet property="mediaReleaseDateLabel" destination="it1-5d-cNu" id="CDR-sc-J0J"/>
+                        <outlet property="mediaTitleLabel" destination="I1I-LM-7RT" id="eTY-fg-qhf"/>
+                        <outlet property="priceLabel" destination="BUl-R0-ZQj" id="Z8N-hJ-K9w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eqi-Kj-Cjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2294" y="285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W3c-XU-TQ2">

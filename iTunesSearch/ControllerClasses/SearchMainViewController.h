@@ -14,6 +14,5 @@
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 @property (strong, nonatomic) IBOutlet UICollectionView *searchResultsCollectionView;
 
-
 @end
 

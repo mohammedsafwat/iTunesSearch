@@ -38,6 +38,8 @@
 		3B090DF61A73CF4C006B5043 /* iTunesSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B090DF51A73CF4C006B5043 /* iTunesSearchTests.m */; };
 		3B090E061A75A380006B5043 /* SearchDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B090E051A75A380006B5043 /* SearchDataParser.m */; };
 		3BEF24911A7869F7005964FB /* mediaImagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF24901A7869F7005964FB /* mediaImagePlaceholder.png */; };
+		3BEF24941A792DF6005964FB /* SearchResultDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF24931A792DF6005964FB /* SearchResultDetailsViewController.m */; };
+		3BEF24961A7941E2005964FB /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF24951A7941E2005964FB /* rectangle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,9 @@
 		3B090E041A75A380006B5043 /* SearchDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDataParser.h; path = ModelClasses/SearchDataParser.h; sourceTree = "<group>"; };
 		3B090E051A75A380006B5043 /* SearchDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDataParser.m; path = ModelClasses/SearchDataParser.m; sourceTree = "<group>"; };
 		3BEF24901A7869F7005964FB /* mediaImagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediaImagePlaceholder.png; sourceTree = "<group>"; };
+		3BEF24921A792DF6005964FB /* SearchResultDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultDetailsViewController.h; path = ControllerClasses/SearchResultDetailsViewController.h; sourceTree = "<group>"; };
+		3BEF24931A792DF6005964FB /* SearchResultDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultDetailsViewController.m; path = ControllerClasses/SearchResultDetailsViewController.m; sourceTree = "<group>"; };
+		3BEF24951A7941E2005964FB /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +143,8 @@
 			children = (
 				3B0514F21A76834E00B24A57 /* SearchMainViewController.h */,
 				3B0514F31A76834E00B24A57 /* SearchMainViewController.m */,
+				3BEF24921A792DF6005964FB /* SearchResultDetailsViewController.h */,
+				3BEF24931A792DF6005964FB /* SearchResultDetailsViewController.m */,
 			);
 			name = ControllerClasses;
 			sourceTree = "<group>";
@@ -328,6 +335,7 @@
 		3BEF248F1A7869E9005964FB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3BEF24951A7941E2005964FB /* rectangle.png */,
 				3BEF24901A7869F7005964FB /* mediaImagePlaceholder.png */,
 			);
 			name = Images;
@@ -415,6 +423,7 @@
 				3B090DE51A73CF4C006B5043 /* Main.storyboard in Resources */,
 				3BEF24911A7869F7005964FB /* mediaImagePlaceholder.png in Resources */,
 				3B090DEA1A73CF4C006B5043 /* LaunchScreen.xib in Resources */,
+				3BEF24961A7941E2005964FB /* rectangle.png in Resources */,
 				3B090DE71A73CF4C006B5043 /* Images.xcassets in Resources */,
 				3B0515321A76874900B24A57 /* SearchResultsCollectionViewCell.xib in Resources */,
 			);
@@ -434,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BEF24941A792DF6005964FB /* SearchResultDetailsViewController.m in Sources */,
 				3B090DDF1A73CF4C006B5043 /* AppDelegate.m in Sources */,
 				3B0515221A76838F00B24A57 /* AFSecurityPolicy.m in Sources */,
 				3B05152B1A76838F00B24A57 /* UIButton+AFNetworking.m in Sources */,
