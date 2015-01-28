@@ -37,9 +37,9 @@
 		3B090DEA1A73CF4C006B5043 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B090DE81A73CF4C006B5043 /* LaunchScreen.xib */; };
 		3B090DF61A73CF4C006B5043 /* iTunesSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B090DF51A73CF4C006B5043 /* iTunesSearchTests.m */; };
 		3B090E061A75A380006B5043 /* SearchDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B090E051A75A380006B5043 /* SearchDataParser.m */; };
-		3BEF24911A7869F7005964FB /* mediaImagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF24901A7869F7005964FB /* mediaImagePlaceholder.png */; };
 		3BEF24941A792DF6005964FB /* SearchResultDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF24931A792DF6005964FB /* SearchResultDetailsViewController.m */; };
-		3BEF24961A7941E2005964FB /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF24951A7941E2005964FB /* rectangle.png */; };
+		3BEF24991A79A044005964FB /* mediaImagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF24971A79A044005964FB /* mediaImagePlaceholder.png */; };
+		3BEF249A1A79A044005964FB /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF24981A79A044005964FB /* rectangle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,10 +114,10 @@
 		3B090E021A75387C006B5043 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = CommonCode/Common.h; sourceTree = "<group>"; };
 		3B090E041A75A380006B5043 /* SearchDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDataParser.h; path = ModelClasses/SearchDataParser.h; sourceTree = "<group>"; };
 		3B090E051A75A380006B5043 /* SearchDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDataParser.m; path = ModelClasses/SearchDataParser.m; sourceTree = "<group>"; };
-		3BEF24901A7869F7005964FB /* mediaImagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mediaImagePlaceholder.png; sourceTree = "<group>"; };
 		3BEF24921A792DF6005964FB /* SearchResultDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultDetailsViewController.h; path = ControllerClasses/SearchResultDetailsViewController.h; sourceTree = "<group>"; };
 		3BEF24931A792DF6005964FB /* SearchResultDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultDetailsViewController.m; path = ControllerClasses/SearchResultDetailsViewController.m; sourceTree = "<group>"; };
-		3BEF24951A7941E2005964FB /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle.png; sourceTree = "<group>"; };
+		3BEF24971A79A044005964FB /* mediaImagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mediaImagePlaceholder.png; path = Resources/Images/mediaImagePlaceholder.png; sourceTree = "<group>"; };
+		3BEF24981A79A044005964FB /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectangle.png; path = Resources/Images/rectangle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,8 +335,8 @@
 		3BEF248F1A7869E9005964FB /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3BEF24951A7941E2005964FB /* rectangle.png */,
-				3BEF24901A7869F7005964FB /* mediaImagePlaceholder.png */,
+				3BEF24971A79A044005964FB /* mediaImagePlaceholder.png */,
+				3BEF24981A79A044005964FB /* rectangle.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -421,9 +421,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B090DE51A73CF4C006B5043 /* Main.storyboard in Resources */,
-				3BEF24911A7869F7005964FB /* mediaImagePlaceholder.png in Resources */,
+				3BEF24991A79A044005964FB /* mediaImagePlaceholder.png in Resources */,
 				3B090DEA1A73CF4C006B5043 /* LaunchScreen.xib in Resources */,
-				3BEF24961A7941E2005964FB /* rectangle.png in Resources */,
+				3BEF249A1A79A044005964FB /* rectangle.png in Resources */,
 				3B090DE71A73CF4C006B5043 /* Images.xcassets in Resources */,
 				3B0515321A76874900B24A57 /* SearchResultsCollectionViewCell.xib in Resources */,
 			);
