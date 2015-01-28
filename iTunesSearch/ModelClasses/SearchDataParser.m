@@ -23,6 +23,7 @@
     NSArray* searchStringComponents = [searchString componentsSeparatedByString:@" "];
     NSMutableArray* filteredSearchStringComponents = [[NSMutableArray alloc]init];
     
+    //Handle if the input search text components contain spaces
     for(NSString* searchStringComponent in searchStringComponents)
     {
         if(![searchStringComponent isEqual:@""])
@@ -30,7 +31,7 @@
             [filteredSearchStringComponents addObject:searchStringComponent];
         }
     }
-    
+    //Append search text components with "+" between them
     for(NSString* stringComponent in filteredSearchStringComponents)
     {
         if([filteredSearchStringComponents indexOfObject:stringComponent] > 0)
@@ -43,10 +44,12 @@
         }
     }
     
+    //Create the final search URL
     NSURL* searchURL = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"%@%@", iTunesSearchBaseURL, searchParametersFullString]];
     
     NSURLRequest* searchParametersRequest = [[NSURLRequest alloc]initWithURL:searchURL];
     
+    //Begin Async operation
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:searchParametersRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
@@ -61,10 +64,8 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
         NSMutableData* downloadedData = [[NSMutableData alloc]init];
         downloadedData = (NSMutableData*)responseObject;
-        //Array of dictionaries
+        //Array of dictionaries holding the returned search data
         NSArray *searchResultJsonDataArray = [downloadedData valueForKey:@"results"];
-        NSLog(@"searchResultJsonData.count %lu", (unsigned long)searchResultJsonDataArray.count);
-        //NSInteger searchResultsCount = [downloadedData valueForKey:@"resultCount"];
         NSMutableArray* finalParsedSearchResults = [self parseSearchData:searchResultJsonDataArray];
         [self.scheduleDataParserDelegate propagateFinalReturnedSearchResults:finalParsedSearchResults withError:nil];
     }
